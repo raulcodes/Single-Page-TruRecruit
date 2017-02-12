@@ -5,6 +5,15 @@ body {
   height: 1000px;
 }
 
+.how {
+  background-color: #263238 !important;
+}
+
+.t {
+  color: #eee !important;
+
+}
+
 .title {
   font: 20px;
 }
