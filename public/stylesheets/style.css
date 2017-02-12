@@ -13,6 +13,10 @@ body {
   color: #263238;
 }
 
+.signup {
+  margin-top: 50px;
+}
+
 h1, h2, h3, h4 {
   color: #eee;
 }
@@ -45,8 +49,20 @@ body {
   display: none;
 }
 
+.but {
+  background-color: none;
+}
+
+.resumeTitle {
+  text-align: center;
+}
+
+#delete-account {
+  position: absolute;
+}
+
 #user-info {
-  border: 1px solid #CCC;
+  /*border: 1px solid #CCC;*/
   clear: both;
   margin: 0 auto 20px;
   max-width: 400px;

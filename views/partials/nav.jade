@@ -1,11 +1,28 @@
-nav.nav
+nav.nav.is-fixed-top
   .nav-left
-    a.nav-item
+    a.nav-item(href='/')
+      img(src='icon.png')
+    a.nav-item(href='/')
       p.navTitle 
         | Tru
         b Recruit
       
-  span.nav-toggle
-    span
-    span
-    span
+  span#toggle.nav-toggle
+    span 
+    span 
+    span 
+
+  #navbar.nav-right.nav-menu
+    a.nav-item(href='/')
+      | Home
+    a.nav-item
+      | Contact
+    span.nav-item  
+      a.button(href='/login')
+        span#sign-in Sign In
+    span.nav-item
+      a.button#sign-out
+        span Sign Out
+    span.nav-item
+      a.button.is-primary(href='/signup')
+        span Sign Up

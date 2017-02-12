@@ -14,10 +14,10 @@ var uiConfig = {
   // Opens IDP Providers sign-in flow in a popup.
   'signInFlow': 'popup',
   'signInOptions': [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    firebase.auth.GithubAuthProvider.PROVIDER_ID,
+    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
@@ -29,20 +29,20 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // Keep track of the currently signed in user.
 var currentUid = null;
 
-/**
- * Redirects to the FirebaseUI widget.
- */
-var signInWithRedirect = function() {
-  window.location.assign('/login');
-};
-
-
-/**
- * Open a popup with the FirebaseUI widget.
- */
-var signInWithPopup = function() {
-  window.open('/widget', 'Sign In', 'width=985,height=735');
-};
+// /**
+//  * Redirects to the FirebaseUI widget.
+//  */
+// var signInWithRedirect = function() {
+//   window.location.assign('/login');
+// };
+//
+//
+// /**
+//  * Open a popup with the FirebaseUI widget.
+//  */
+// var signInWithPopup = function() {
+//   window.open('/widget', 'Sign In', 'width=985,height=735');
+// };
 
 
 /**
@@ -110,10 +110,10 @@ var deleteAccount = function() {
  * Initializes the app.
  */
 var initApp = function() {
-  document.getElementById('sign-in-with-redirect').addEventListener(
-      'click', signInWithRedirect);
-  document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);
+  // document.getElementById('sign-in-with-redirect').addEventListener(
+  //     'click', signInWithRedirect);
+  // document.getElementById('sign-in-with-popup').addEventListener(
+  //     'click', signInWithPopup);
   document.getElementById('sign-out').addEventListener('click', function() {
     firebase.auth().signOut();
   });

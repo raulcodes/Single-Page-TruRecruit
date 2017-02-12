@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .columns
+    .column
+    .column
+      .card.signup
+        .card-content
+          .form#signup-form(role="form" name='signup-form' onsubmit="signup()")
+            label.label
+              | Email Address
+            p.control
+              input.input(type="text" id='email' placeholder="Enter Email Here" required)
+            label.label
+              | Password
+            p.control
+              input.input(type="password" id='password' placeholder="Enter Your Password" required)
+            label.label 
+              | Confirm Password
+            p.control
+              input.input(type="password" id='confirm' placeholder="Confirm Your Password" required)
+            input.button.is-primary#submit(type='submit' value='Submit')
+    .column
+  script(src='/js/signup.js')
+  script(src='/js/index.js')
+
+    

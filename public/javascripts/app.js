@@ -16,7 +16,7 @@ var uiConfig = {
   'signInOptions': [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID
   ],
@@ -33,7 +33,7 @@ var currentUid = null;
  * Redirects to the FirebaseUI widget.
  */
 var signInWithRedirect = function() {
-  window.location.assign('/widget');
+  window.location.assign('/login');
 };
 
 
@@ -61,6 +61,7 @@ var handleSignedInUser = function(user) {
   } else {
     document.getElementById('photo').style.display = 'none';
   }
+  // $("#sign")
 };
 
 
@@ -110,11 +111,11 @@ var deleteAccount = function() {
  * Initializes the app.
  */
 var initApp = function() {
-  document.getElementById('sign-in-with-redirect').addEventListener(
-      'click', signInWithRedirect);
-  document.getElementById('sign-in-with-popup').addEventListener(
-      'click', signInWithPopup);
-  document.getElementById('sign-out').addEventListener('click', function() {
+  // document.getElementById('sign-in-with-redirect').addEventListener(
+  //     'click', signInWithRedirect);
+  // document.getElementById('sign-in-with-popup').addEventListener(
+  //     'click', signInWithPopup);
+  document.getElementById('sign-out').addEventListener('click', () => {
     firebase.auth().signOut();
   });
   document.getElementById('delete-account').addEventListener(
