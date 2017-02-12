@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  section.hero.is-medium.is-primary.is-bold
+    .hero-body
+      .container
+        h1.title 
+          | Tru
+          b Recruit
+        h3 Welcome to TruRecruit
+        form(action='/login')
+          input(type='submit' value='Login')

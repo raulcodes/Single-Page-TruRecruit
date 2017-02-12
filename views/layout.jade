@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title= title
+    script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")
+    script(src='/js/config.js')
+    script(src='/js/qrcode.js')
+    script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
+    link(type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
+
+  include partials/nav
+  body
+    block content

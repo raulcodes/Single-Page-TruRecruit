@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  h3 FirebaseUI Demo
+  #loading Loading...
+  #loaded.hidden
+    #main
+      #user-signed-in.hidden
+        #user-info
+          #photo-container
+            img#photo
+          #name
+          #email
+          .clearfix
+        p
+          button#sign-out Sign Out
+          button#delete-account Delete account
+        h6 Choose File
+        input(type="file" id="file" name="file")
+        h6 File URL:
+        span#linkbox
+        #qrcode
+      #user-signed-out.hidden
+        h4 You are signed out.
+        button#sign-in-with-redirect Sign In with Redirect
+        button#sign-in-with-popup Sign In with Popup
+        #firebaseui-spa
+          h5 Single Page Application mode:
+          #firebaseui-container
+  script(src='/js/app.js')
+  script(src='/js/fileUpload.js')
