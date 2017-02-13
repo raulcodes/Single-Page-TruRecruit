@@ -1,59 +1,71 @@
-extends layout
+doctype html
+html
+  head
+    title= title
+    script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")
+    script(src='/js/config.js')
+    script(src='/js/qrcode.js')
+    script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
+    script(src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous")
+    link(type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
 
-block content
-  section.hero.is-fullheight.is-medium.is-primary.is-bold
-    .hero-body
-      .container
-        .columns.is-vcentered
-          .column.is-4.is-offset-4
-            h1.title.has-text-centered
-              | Register an Account
-            .box
-              label.label Name
-              p.control
-                input.input(type='text', placeholder='John Smith')
-              label.label Username
-              p.control
-                input.input(type='text', placeholder='jsmith')
-              label.label Email
-              p.control
-                input.input(type='text', id="email" placeholder='jsmith@example.org')
-              hr
-              label.label Password
-              p.control
-                input.input(type='password', id="password" placeholder='●●●●●●●')
-              label.label Confirm Password
-              p.control
-                input.input(type='password', id="confirm" placeholder='●●●●●●●')
-              hr
-              p.control
-                button.button.is-primary#submit Register
-                button.button.is-default(href="/") Cancel
-            p.has-text-centered
-              a(href='/login') Login
-              |               
-              a(href='#') Need help?
-  //- .columns
-  //-   .column
-  //-   .column
-  //-     .card.signup
-  //-       .card-content
-  //-         .form#signup-form(role="form" name='signup-form' onsubmit="signup()")
-  //-           label.label
-  //-             | Email Address
-  //-           p.control
-  //-             input.input(type="text" id='email' placeholder="Enter Email Here" required)
-  //-           label.label
-  //-             | Password
-  //-           p.control
-  //-             input.input(type="password" id='password' placeholder="Enter Your Password" required)
-  //-           label.label 
-  //-             | Confirm Password
-  //-           p.control
-  //-             input.input(type="password" id='confirm' placeholder="Confirm Your Password" required)
-  //-           input.button.is-primary#submit(type='submit' value='Submit')
-  //-   .column
-  script(src='/js/signup.js')
-  script(src='/js/index.js')
+  body
+    block content
+      section.hero.is-fullheight.is-medium.is-primary.is-bold
+        .hero-body
+          .container
+            .columns.is-vcentered
+              .column.is-4.is-offset-4
+                h1.title.has-text-centered
+                  | Register an Account
+                .box
+                  label.label Name
+                  p.control
+                    input.input(type='text', placeholder='John Smith')
+                  label.label Username
+                  p.control
+                    input.input(type='text', placeholder='jsmith')
+                  label.label Email
+                  p.control
+                    input.input(type='text', id="email" placeholder='jsmith@example.org')
+                  hr
+                  label.label Password
+                  p.control
+                    input.input(type='password', id="password" placeholder='●●●●●●●')
+                  label.label Confirm Password
+                  p.control
+                    input.input(type='password', id="confirm" placeholder='●●●●●●●')
+                  hr
+                  p.control
+                    button.button.is-primary#submit Register
+                    a.button.cancel.is-default(href='/') Cancel
+                p.has-text-centered
+                  a(href='/login') Login
+                  |               
+                  a(href='#') Need help?
+      //- .columns
+      //-   .column
+      //-   .column
+      //-     .card.signup
+      //-       .card-content
+      //-         .form#signup-form(role="form" name='signup-form' onsubmit="signup()")
+      //-           label.label
+      //-             | Email Address
+      //-           p.control
+      //-             input.input(type="text" id='email' placeholder="Enter Email Here" required)
+      //-           label.label
+      //-             | Password
+      //-           p.control
+      //-             input.input(type="password" id='password' placeholder="Enter Your Password" required)
+      //-           label.label 
+      //-             | Confirm Password
+      //-           p.control
+      //-             input.input(type="password" id='confirm' placeholder="Confirm Your Password" required)
+      //-           input.button.is-primary#submit(type='submit' value='Submit')
+      //-   .column
+      script(src='/js/signup.js')
+      script(src='/js/index.js')
 
     

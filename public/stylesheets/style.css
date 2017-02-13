@@ -14,6 +14,11 @@ body {
 
 }
 
+.cancel {
+  margin-left: 5px !important;
+  color: #263238 !important;
+}
+
 .title {
   font: 20px;
 }
