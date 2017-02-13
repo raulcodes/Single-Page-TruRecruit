@@ -106,3 +106,22 @@ body {
     width: 40px;
   }
 }
+
+@media screen and (max-width: 999px) {
+  .nav-menu {
+    background-color: white;
+    box-shadow: 0 4px 7px rgba(10, 10, 10, 0.1);
+    left: 0;
+    display: none;
+    right: 0;
+    top: 100%;
+    position: absolute;
+  }
+  .nav-menu .nav-item {
+    border-top: 1px solid rgba(219, 219, 219, 0.5);
+    padding: 0.75rem;
+  }
+  .nav-menu.is-active {
+    display: block;
+  }
+}
