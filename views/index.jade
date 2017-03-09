@@ -9,8 +9,35 @@ block content
           b Recruit
         h3 Welcome to TruRecruit.
         h3 A simpler way to network resumes.
-  //- section.section.how
-  //-   .container
-  //-     .heading
-  //-       .title.t How it works
+  section.section.how
+    .container
+      .heading
+        h1.t How it works
+      .columns
+        .column
+          .card
+            .card-image
+              figure.image-is-4by3
+                img(src='/assets/resume.png' alt='Resume')
+            .card-content
+              .content.has-text-centered(style='font-weight: bold;')
+                | 1. Prospective candidates signs up and uploads a copy of their 
+                | resume to our website.
+        .column
+          .card
+            .card-image
+              figure.image-is-4by3
+                img(src='/assets/qrcode.png' alt='QR Code')
+            .card-content
+              .content.has-text-centered(style='font-weight: bold;')
+                | 2. Prospective candidates save a QR code provided by us.
+        .column
+          .card
+            .card-image
+              figure.image-is-4by3
+                img(src='/assets/recruiter.png' alt='Recruiter')
+            .card-content
+              .content.has-text-centered(style='font-weight: bold;')
+                | 3. Recruiters takes notes and rate resumes after scanning a 
+                | candidate's QR code.
   script(src='/js/index.js')

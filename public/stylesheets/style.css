@@ -10,8 +10,9 @@ body {
 }
 
 .t {
+  font-size: 25px;
   color: #eee !important;
-
+  padding-bottom: 30px;
 }
 
 .cancel {
