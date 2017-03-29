@@ -84,7 +84,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
   document.getElementById('loading').style.display = 'none';
   document.getElementById('loaded').style.display = 'block';
-  user ? handleSignedInUser(user) : handleSignedOutUser();
+  // user ? handleSignedInUser(user) : handleSignedOutUser();
 });
 
 /**
