@@ -9,6 +9,11 @@ body {
   background-color: #263238 !important;
 }
 
+.is-dark {
+  font-size: 15px;
+  color: #263238;
+}
+
 .t {
   font-size: 25px;
   color: #eee !important;
