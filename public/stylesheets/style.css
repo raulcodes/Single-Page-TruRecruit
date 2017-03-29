@@ -5,6 +5,18 @@ body {
   /*height: 1000px;*/
 }
 
+h1.title {
+  font-size: 35px;
+}
+
+h2 {
+  font-size: 22px !important;
+}
+
+h3 {
+  font-size: 15px !important;
+}
+
 .how {
   background-color: #263238 !important;
 }
@@ -25,11 +37,9 @@ body {
   color: #263238 !important;
 }
 
-.title {
-  font: 20px;
-}
-
 .navTitle {
+  margin-left: -15px;
+  font-size: 20px;
   color: #263238;
 }
 
@@ -38,7 +48,7 @@ body {
 }
 
 h1, h2, h3, h4 {
-  color: #eee;
+  color: #eee !important;
 }
 
 p {
