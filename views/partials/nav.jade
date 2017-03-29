@@ -1,3 +1,5 @@
+#loading Loading...
+#loaded.hidden
 nav.nav
   .container
     .nav-left
@@ -18,13 +20,12 @@ nav.nav
         | Home
       a.nav-item.is-tab
         | Contact
-      span.nav-item  
-        a.button(href='/login')
+      span.nav-item#user-signed-out.hidden
+        a.button(href='/')
           span#sign-in Sign In
-      span.nav-item
+      span.nav-item#user-signed-in.hidden
         a.button#sign-out
           span Sign Out
       span.nav-item
         a.button.is-primary(href='/signup')
           span Sign Up
-//- script(src='/js/bulma.js')

@@ -53,6 +53,43 @@ block content
           .column
           .column
       #user-signed-out.hidden
+        .login-wrapper.columns
+          .column.is-8.is-hidden-mobile.hero-banner
+            section.hero.is-fullheight.is-dark
+              .hero-body
+                .container.section
+                  .has-text-right
+                    h1.title.is-1 Login
+                    br
+                    p.title.is-3 Secure User Account Login
+              .hero-footer
+                p.has-text-centered Image © Glenn Carstens-Peters via unsplash
+          .column.is-4
+            section.hero.is-fullheight
+              .hero-heading
+                .section.has-text-centered
+                  img(src='http://bulma.io/images/bulma-logo.png', alt='Bulma logo', width='150px')
+              .hero-body
+                .container
+                  .columns
+                    .column.is-8.is-offset-2
+                      h1.avatar.has-text-centered.section
+                        img(src='https://placehold.it/128x128')
+                      .login-form
+                        p.control.has-icon.has-icon-right
+                          input.input.email-input(type='text', placeholder='jsmith@example.org')
+                          span.icon.user
+                            i.fa.fa-user
+                        p.control.has-icon.has-icon-right
+                          input.input.password-input(type='password', placeholder='●●●●●●●')
+                          span.icon.user
+                            i.fa.fa-lock
+                        p.control.login
+                          button.button.is-success.is-outlined.is-large.is-fullwidth Login
+                      .section.forgot-password
+                        p.has-text-centered
+                          a(href='#') Forgot password
+                          a(href='#') Need help?
         #firebaseui-spa
           #firebaseui-container
   script(src='/js/app.js')
