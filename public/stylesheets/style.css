@@ -21,6 +21,24 @@ h3 {
   color: #263238;
 }
 
+.go {
+  margin-top: 15px;
+  margin-left: 10px;
+  height: 40px !important;
+  width: 46% !important;
+  border-radius: 25px !important;
+  background-color: #B71C1C !important;
+}
+
+.fb {
+  margin-top: 15px;
+  margin-left: 10px;
+  height: 40px !important;
+  width: 46% !important;
+  border-radius: 25px !important;
+  background-color: #1565C0 !important;
+}
+
 .how {
   background-color: #263238 !important;
 }

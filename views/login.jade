@@ -21,18 +21,27 @@ html
         .container
           .columns.is-vcentered
             .column.is-4.is-offset-4
-              h1.title.has-text-centered Login 
-              .box
+              h1.title.has-text-centered Login
+              h3= error 
+              form.box(method="post")
                 label.label Email 
                 p.control
-                  input.input(type="text" placeholder="johndoe@example.com")
+                  input.input(type="text" name="email" placeholder="jsmith@example.com")
                 label.label Password
                 p.control
-                  input.input(type="password" placeholder="●●●●●●●")
+                  input.input(type="password" name="password" placeholder="●●●●●●●")
+                p.control.columns
+                  .column.is-12
+                    a.button.fb.has-text-centered.is-primary
+                      i.fa.fa-facebook
+                    a.button.go.has-text-centered
+                      i.fa.fa-google
+
                 hr
                 
                 p.control 
-                  a.button.is-primary Login
+                  
+                  input.button.is-primary(type="submit" value="Login")
                   a.button.cancel.is-default(href='/') Cancel
               p.has-text-centered
                 a(href="/signup") Register an Account |

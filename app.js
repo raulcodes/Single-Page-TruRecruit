@@ -4,11 +4,24 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var firebase = require('firebase');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+
+console.log(users.str);
 var app = express();
+
+var config = {
+    apiKey: "AIzaSyA-x9QZH1YezDMX-GPxsNPyK3H0WwQ5cFw",
+    authDomain: "blistering-heat-648.firebaseapp.com",
+    databaseURL: "https://blistering-heat-648.firebaseio.com",
+    projectId: "blistering-heat-648",
+    storageBucket: "blistering-heat-648.appspot.com",
+    messagingSenderId: "610839407937"
+  };
+firebase.initializeApp(config);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,9 +35,34 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
-app.use('/users', users);
-app.use('/login', routes);
+app.get('/', routes);
+
+
+app.get('/login', (req, res) => {
+  res.render('login', { title: 'Login' });
+});
+
+// post login
+app.post('/login', (req, res, next) => {
+
+  console.log(req.body.email);
+
+  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    if (error) {
+      res.render('login', { error: errorMessage });
+    } else {
+      res.redirect('/');
+    }
+    // ...
+  });
+
+  // res.redirect('/');
+});
+
+
 app.use('/signup', routes);
 
 // catch 404 and forward to error handler
