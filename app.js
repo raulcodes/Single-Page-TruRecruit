@@ -51,6 +51,7 @@ app.post('/login', (req, res, next) => {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
+    // var both = errorMessage + " " + errorCode;
     if (error) {
       res.render('login', { error: errorMessage });
     } else {
@@ -58,12 +59,38 @@ app.post('/login', (req, res, next) => {
     }
     // ...
   });
-
-  // res.redirect('/');
 });
 
 
-app.use('/signup', routes);
+app.get('/signup', (req, res, next) => {
+  res.render('signup', { title: 'SignUp' });
+});
+
+app.post('/signup', (req, res) => {
+
+  if (req.body.email != req.body.cemail || req.body.password != req.body.cpassword) {
+    error = "Emails or passwords do not match";
+    res.render('signup', { error: error });
+  } else {
+
+    firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    if (error) {
+      res.render('signup', { error: errorMessage });
+    } else {
+      res.render('profile', { email: req.body.email });
+    }
+    // ...
+    });
+  }
+});
+
+// app.get('/profile', (req, res, next) => {
+//   res.render('profile', { })
+// });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -8,6 +8,7 @@ html
     script(src='/js/qrcode.js')
     script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
     script(src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous")
+    script(src="https://use.fontawesome.com/94dc17aa33.js")
     link(type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
@@ -21,26 +22,40 @@ html
               .column.is-4.is-offset-4
                 h1.title.has-text-centered
                   | Register an Account
-                .box
-                  label.label Name
+                form.box(method="post")
+                  h4.error= error
+                  label.label 
+                    | Email 
+                    span(style="color: red;") *
                   p.control
-                    input.input(type='text', placeholder='John Smith')
-                  label.label Username
+                    input.input(type='text', name="email" placeholder='jsmith@example.org')
+                  label.label 
+                    | Confrim Email 
+                    span(style="color: red;") *
                   p.control
-                    input.input(type='text', placeholder='jsmith')
-                  label.label Email
-                  p.control
-                    input.input(type='text', id="email" placeholder='jsmith@example.org')
+                    input.input(type='text', id="email" name="cemail" placeholder='jsmith@example.org')
                   hr
-                  label.label Password
+                  label.label 
+                    | Password 
+                    span(style="color: red;") *
                   p.control
-                    input.input(type='password', id="password" placeholder='●●●●●●●')
-                  label.label Confirm Password
+                    input.input(type='password', id="password" name="password" placeholder='●●●●●●●')
+                  label.label 
+                    | Confirm Password 
+                    span(style="color: red;") *
                   p.control
-                    input.input(type='password', id="confirm" placeholder='●●●●●●●')
+                    input.input(type='password', id="cpassword" name="cpassword" placeholder='●●●●●●●')
+                  hr
+                  p.control.columns
+                    .column.is-12
+                      p.has-text-centered(style="color: gray;") or continue with...
+                      a.button.fb.has-text-centered.is-primary
+                        i.fa.fa-facebook
+                      a.button.go.has-text-centered
+                        i.fa.fa-google
                   hr
                   p.control
-                    button.button.is-primary#submit Register
+                    input.button.is-primary#submit(type="submit" value="Sign Up")
                     a.button.cancel.is-default(href='/') Cancel
                 p.has-text-centered
                   a(href='/login') Login |           

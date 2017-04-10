@@ -17,6 +17,10 @@ h3 {
   font-size: 15px !important;
 }
 
+h4.error {
+  color: red !important;
+}
+
 .cancel {
   color: #263238;
 }

@@ -8,8 +8,4 @@ router.get('/', (req, res, next) => {
   res.render('index', { title: 'TruRecruit' });
 });
 
-router.get('/signup', (req, res, next) => {
-  res.render('signup', { title: 'SignUp' });
-});
-
 module.exports = router;
