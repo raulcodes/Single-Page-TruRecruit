@@ -39,12 +39,15 @@ html
                       // this field changes dinamically displaying the filename we are trying to upload
                       p#namefile.has-text-centered Only resumes allowed! (pdf)
                       // our custom btn which which stays under the actual one
-                      button#btnup.button.is-primary.btn-lg(type='button') Browse for your resume!
+                      p.has-text-centered
+                        button#btnup.button.is-primary.btn-lg(type='button') Browse for your resume!
                       // this is the actual file input, is set with opacity=0 beacause we wanna see our custom one
-                      input#fileup(type='file', value='', name='fileup')
+                      p.has-text-centered
+                        input#fileup(type='file', value='', name='fileup')
                       // the defauld disabled btn and the actual one shown only if the three fields are valid
-                      input#submitbtn.button.is-primary(type='submit', value='Submit!')
-                      button#fakebtn.button.is-default(type='button', disabled='disabled')
-                        | Submit! 
-                        i.fa.fa-minus-circle
+                      p.has-text-centered
+                        input#submitbtn.button.is-primary(type='submit', value='Submit!')
+                        button#fakebtn.button.is-default(type='button', disabled='disabled')
+                          | Submit! 
+                          i.fa.fa-minus-circle
   script(src="js/file.js")
