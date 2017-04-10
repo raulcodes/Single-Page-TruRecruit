@@ -9,8 +9,7 @@ var firebase = require('firebase');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-
-console.log(users.str);
+// console.log(users.str);
 var app = express();
 
 var config = {
@@ -61,8 +60,7 @@ app.post('/login', (req, res, next) => {
   });
 });
 
-
-app.get('/signup', (req, res, next) => {
+app.get('/signup', (req, res) => {
   res.render('signup', { title: 'SignUp' });
 });
 
@@ -86,6 +84,11 @@ app.post('/signup', (req, res) => {
     // ...
     });
   }
+
+});
+
+app.get('/profile', (req, res) => {
+  res.render('profile', { title: "Profile" });
 });
 
 // app.get('/profile', (req, res, next) => {

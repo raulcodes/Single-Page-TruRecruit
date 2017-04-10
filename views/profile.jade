@@ -2,107 +2,55 @@ doctype html
 html
   head
     meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="theme-color" content="#00a76f")
     title= title
     script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")
-    script(src='/js/config.js')
-    script(src='/js/qrcode.js')
-    script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
     script(src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous")
     script(src="https://use.fontawesome.com/94dc17aa33.js")
-    link(type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
     
+    //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    
   body
-    nav#top.nav.has-shadow
-    .container
-      .nav-left
-        a.nav-item(href='../index.html')
-          img(src='../images/bulma.png', alt='Description')
-      span.nav-toggle
-        span
-        span
-        span
-      .nav-right.nav-menu
-        a.nav-item.is-tab.is-active
-          | Home
-        a.nav-item.is-tab
-          | Features
-        a.nav-item.is-tab
-          | Team
-        a.nav-item.is-tab
-          | Help
-        span.nav-item
-          a.button
-            | Log in
-          a.button.is-info
-            | Sign up
-    .container.profile
-    .section.profile-heading
-      .columns
-        .column.is-2
-          .image.is-128x128.avatar
-            img(src='https://placehold.it/256x256')
-        .column.is-4.name
-          p
-            span.title.is-bold John Smith
-            span.button.is-primary.is-outlined.follow Follow
-          p.tagline The users profile bio would go here, of course. It could be two lines
-        .column.is-2.followers.has-text-centered
-          p.stat-val 129k
-          p.stat-key followers
-        .column.is-2.following.has-text-centered
-          p.stat-val 2k
-          p.stat-key following
-        .column.is-2.likes.has-text-centered
-          p.stat-val 29
-          p.stat-key likes
-    .profile-options
-      .tabs.is-fullwidth
-        ul
-          li.link.is-active
-            a
-              span.icon
-                i.fa.fa-list
-              span My Lists
-          li.link
-            a
-              span.icon
-                i.fa.fa-heart
-              span My Likes
-          li.link
-            a
-              span.icon
-                i.fa.fa-th
-              span My Posts
-          li.link
-            a
-              span.icon
-                i.fa.fa-bookmark
-              span My Bookmarks
-    .box
-      // Main container
-      nav.level
-        // Left side
-        .level-left
-          .level-item
-            p.subtitle.is-5
-              strong 123
-              |  posts
-          .level-item
-            p.control.has-addons
-              input.input(type='text', placeholder='Find a post')
-              button.button
-                | Search
-        // Right side
-        .level-right
-          p.level-item
-            strong All
-          p.level-item
-            a Published
-          p.level-item
-            a Drafts
-          p.level-item
-            a Deleted
-          p.level-item
-            a.button.is-success New
+    include partials/nav
+    block content
+      section.hero.is-primary.is-bold.is-fullheight
+        .container
+          .columns
+            .column.is-3.is-offset-2
+              .box.name
+                .columns
+                  .image.is-128x128.avatar.profile-pic
+                    img(src='assets/avatar.png')
+                    p.has-text-centered.username Raul Camacho
+            .column.is-5
+              .box.name
+                .columns
+                  .column.is-8.is-offset-2
+                    // the three icons: default, ok file (img), error file (not an img)
+                    h1.imgupload.has-text-centered
+                      i.icon-file.fa.fa-file-image-o
+                    h1.imgupload.ok.has-text-centered
+                      i.icon-file.fa.fa-check
+                    h1.imgupload.stop.has-text-centered
+                      i.icon-file.fa.fa-times
+                    // this field changes dinamically displaying the filename we are trying to upload
+                    p#namefile.has-text-centered Only resumes allowed! (pdf)
+                    // our custom btn which which stays under the actual one
+                    button#btnup.button.is-primary.btn-lg(type='button') Browse for your resume!
+                    // this is the actual file input, is set with opacity=0 beacause we wanna see our custom one
+                    input#fileup(type='file', value='', name='fileup')
+                    // the defauld disabled btn and the actual one shown only if the three fields are valid
+                    input#submitbtn.button.is-primary(type='submit', value='Submit!')
+                    button#fakebtn.button.is-default(type='button', disabled='disabled')
+                      | Submit! 
+                      i.fa.fa-minus-circle
+    i.fa.fa-minus-circle
+          .columns
+            .column.is-8.is-offset-2
+              .box 
+                h2 hello
+              .box 
+                h2 hello
+  script(src="js/file.js")
