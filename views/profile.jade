@@ -1,0 +1,108 @@
+doctype html
+html
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    title= title
+    script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")
+    script(src='/js/config.js')
+    script(src='/js/qrcode.js')
+    script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
+    script(src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous")
+    script(src="https://use.fontawesome.com/94dc17aa33.js")
+    link(type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
+    
+  body
+    nav#top.nav.has-shadow
+    .container
+      .nav-left
+        a.nav-item(href='../index.html')
+          img(src='../images/bulma.png', alt='Description')
+      span.nav-toggle
+        span
+        span
+        span
+      .nav-right.nav-menu
+        a.nav-item.is-tab.is-active
+          | Home
+        a.nav-item.is-tab
+          | Features
+        a.nav-item.is-tab
+          | Team
+        a.nav-item.is-tab
+          | Help
+        span.nav-item
+          a.button
+            | Log in
+          a.button.is-info
+            | Sign up
+    .container.profile
+    .section.profile-heading
+      .columns
+        .column.is-2
+          .image.is-128x128.avatar
+            img(src='https://placehold.it/256x256')
+        .column.is-4.name
+          p
+            span.title.is-bold John Smith
+            span.button.is-primary.is-outlined.follow Follow
+          p.tagline The users profile bio would go here, of course. It could be two lines
+        .column.is-2.followers.has-text-centered
+          p.stat-val 129k
+          p.stat-key followers
+        .column.is-2.following.has-text-centered
+          p.stat-val 2k
+          p.stat-key following
+        .column.is-2.likes.has-text-centered
+          p.stat-val 29
+          p.stat-key likes
+    .profile-options
+      .tabs.is-fullwidth
+        ul
+          li.link.is-active
+            a
+              span.icon
+                i.fa.fa-list
+              span My Lists
+          li.link
+            a
+              span.icon
+                i.fa.fa-heart
+              span My Likes
+          li.link
+            a
+              span.icon
+                i.fa.fa-th
+              span My Posts
+          li.link
+            a
+              span.icon
+                i.fa.fa-bookmark
+              span My Bookmarks
+    .box
+      // Main container
+      nav.level
+        // Left side
+        .level-left
+          .level-item
+            p.subtitle.is-5
+              strong 123
+              |  posts
+          .level-item
+            p.control.has-addons
+              input.input(type='text', placeholder='Find a post')
+              button.button
+                | Search
+        // Right side
+        .level-right
+          p.level-item
+            strong All
+          p.level-item
+            a Published
+          p.level-item
+            a Drafts
+          p.level-item
+            a Deleted
+          p.level-item
+            a.button.is-success New
