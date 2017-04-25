@@ -23,8 +23,11 @@ html
                 .box.name
                   .columns
                     .image.is-128x128.avatar.profile-pic
-                      img(src='assets/avatar.png')
-                      p.has-text-centered.username Raul Camacho
+                      if user.photoURL
+                        img.profilepic(src= user.photoURL)
+                      else
+                        img.profilepic(src= 'https://github.com/identicons/raulcodes.png')
+                      p.has-text-centered.username= user.email
               .column.is-5
                 .box.name
                   .columns

@@ -3,8 +3,7 @@ html
   head
     meta(name="viewport" content="width=device-width, initial-scale=1")
     title= title
-    script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")
-    script(src='/js/config.js')
+    //- script(src='/js/config.js')
     script(src='/js/qrcode.js')
     script(src="https://cdn.firebase.com/libs/firebaseui/1.0.0/firebaseui.js")
     script(src="https://code.jquery.com/jquery-3.1.1.slim.js" integrity="sha256-5i/mQ300M779N2OVDrl16lbohwXNUdzL/R2aVUXyXWA=" crossorigin="anonymous")
@@ -13,7 +12,6 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.1/css/bulma.css")
     
-    //- link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
     
   body
     section.hero.is-fullheight.is-primary.is-bold
@@ -22,8 +20,8 @@ html
           .columns.is-vcentered
             .column.is-4.is-offset-4
               h1.title.has-text-centered Login 
-              form.box(method="post")
-                h4.error= error
+              form.box(action="/login" method="post")
+                h4.error= errorm
                 label.label 
                   | Email 
                   span(style="color: red;") *
@@ -55,3 +53,5 @@ html
                 a(href="#")  Forgot Password |
                  
                 a(href="#")  Need Help?
+                
+  script(src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js")

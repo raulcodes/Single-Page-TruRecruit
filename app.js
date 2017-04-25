@@ -34,61 +34,99 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', routes);
+app.get('/', (req, res, next) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+      res.render('index');
+    } else {
+      res.render('index', { email: user.email });
+    }
+  });
+});
 
-
-app.get('/login', (req, res) => {
-  res.render('login', { title: 'Login' });
+app.get('/login', (req, res, next) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+      console.log("Not logged in");
+      res.render('login', { title: 'Login' });
+    } else {
+      console.log("you're already logged in")
+      console.log(user.email);
+      res.redirect('/');
+    }
+  });
 });
 
 // post login
 app.post('/login', (req, res, next) => {
 
-  console.log(req.body.email);
-
-  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).catch(function(error) {
+  firebase.auth().signInWithEmailAndPassword(req.body.email, req.body.password).catch((error) => {
     // Handle Errors here.
     var errorCode = error.code;
-    var errorMessage = error.message;
-    // var both = errorMessage + " " + errorCode;
+    var err = error.message;
     if (error) {
-      res.render('login', { error: errorMessage });
+      err = 'Wrong email or password.';
+      console.log(err);
+      Promise.resolve(err);
+    }   
+  }).then((err) => {
+    console.log(err + 'heren');
+    if (!err) {
+      console.log(err + 'here');
+      return res.render('login', { errorm: "Wrong email or password." });
     } else {
-      res.redirect('/');
+      return res.redirect('/profile');
     }
-    // ...
   });
 });
 
-app.get('/signup', (req, res) => {
+app.get('/signout', (req, res) => {
+  firebase.auth().signOut().then(function() {
+    console.log("You signed out successfully");
+    res.redirect('/');
+  }).catch(function(error) {
+    console.log(error);
+    res.redirect('/');
+  });
+});
+
+app.get('/signup', (req, res, next) => {
   res.render('signup', { title: 'SignUp' });
 });
 
-app.post('/signup', (req, res) => {
-
+app.post('/signup', (req, res, next) => {
   if (req.body.email != req.body.cemail || req.body.password != req.body.cpassword) {
     error = "Emails or passwords do not match";
-    res.render('signup', { error: error });
+    return res.render('signup', { error: error });
   } else {
-
+    console.log("we out here");
     firebase.auth().createUserWithEmailAndPassword(req.body.email, req.body.password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-    if (error) {
-      res.render('signup', { error: errorMessage });
-    } else {
-      res.render('profile', { email: req.body.email });
-    }
-    // ...
+      // Handle Errors here.
+      var errorCode = error.code;
+      var err = error.message;
+      if (error) {
+        Promise.resolve(err);
+      } 
+    }).then((err) => {
+      if (!err) {
+        return res.render('signup', { errorm: "Emails or passwords do not match." });
+      } else {
+        return res.redirect('/');
+      }
     });
   }
-
 });
 
-app.get('/profile', (req, res) => {
-  res.render('profile', { title: "Profile" });
+app.get('/profile', (req, res, next) => {
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log('1');
+      res.render('profile', { user: user });
+    } else {
+      console.log('2');
+      res.redirect('/');
+    }
+  });
 });
 
 // app.get('/profile', (req, res, next) => {
